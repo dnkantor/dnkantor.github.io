@@ -20,7 +20,7 @@ if($_POST) {
 		$error['email'] = "Please enter a valid email address.";
 	}
 	// Check Message
-	if (strlen($contact_message) < 15) {
+	if (strlen($contact_message) < 2) {
 		$error['message'] = "Please enter your message. It should have at least 15 characters.";
 	}
    // Subject
@@ -46,7 +46,7 @@ if($_POST) {
 
    if (!$error) {
 
-      //ini_set("sendmail_from", $siteOwnersEmail); // for windows server
+      ini_set("sendmail_from", $siteOwnersEmail); // for windows server
       $mail = mail($siteOwnersEmail, $subject, $message, $headers);
 
 		if ($mail) { echo "OK"; }
